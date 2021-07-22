@@ -1,10 +1,10 @@
 ---
 layout: post
 title:  "Kubernetes Cluster 종료하기/시작하기"
-date:   2021-07-22 16:00:00 +0900
+date:   2021-07-21 16:00:00 +0900
 categories: Platform
 ---
-created : 2021-07-22, updated : 2021-07-22
+created : 2021-07-21, updated : 2021-07-21
 
 # Introduction
 이미 만들어진 Kubernetes Cluster(링크)를 종료하고 시작하는 방법을 기술해본다. 처음에 재시작하고 문제가 발생하여 해결하기 위해 문서를 작성하기 시작하였는데, Tip에 설명한 문제였다 몇번의 재설치(Ansible 만세)로 보강을 할 수 있었다.
