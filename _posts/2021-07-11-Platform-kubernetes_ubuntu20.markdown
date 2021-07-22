@@ -4,6 +4,7 @@ title:  "Ansible을 이용하여 Ubuntu 20.04에 Kubernetes 구성하기"
 date:   2021-07-11 16:00:00 +0900
 categories: Platform
 ---
+created : 2021-07-11, updated : 2021-07-22
 
 # Introduction
 이 문서를 찾은 사람들은 아마 Kubernetes가 무엇인지는 알고, 구성을 해보고 싶어서 검색을 했을 것이라 생각된다. 그래서 Kubernetes를 왜 사용해야하고, 장단점이 무엇인지를 논의하지는 않겠다. 간단하게 로컬에 VirtualBox를 이용하여 Kubernetes Cluster를 구성하는데 초점을 맞추겠다. 
@@ -276,6 +277,9 @@ $ nano master.yml
     - name: disable swap
       shell: "swapoff -a"
 
+    - name: disable swap it /etc/fstab
+      shell: "sudo sed -i 's|^/swap.img|#/swap.img|g' /etc/fstab"
+
     - name: initialize the cluster
       shell: kubeadm init --pod-network-cidr=10.244.0.0/16 >> cluster_initialized.txt
       args:
@@ -307,6 +311,7 @@ $ nano master.yml
 
 * hosts: master 로 master 서버에서만 실행을 한다.
 * swap을 disable 한다.
+* /etc/fstab에 swap을 disable 한다. (재부팅시 적용하기 위함.)
 * Kubernetes cluster를 초기화 한다. 결과 파일은 /root/cluster_initialized.txt 에서 확인할 수 있다.
 * ubuntu 계정에 .kube 디렉토리를 만들고, cluster 초기에서 생성된 정보를 복사한다.
 * Pod network를 구성한다.
@@ -377,6 +382,9 @@ $ nano worker.yml
     - name: disable swap
       shell: "swapoff -a"
         
+    - name: disable swap it /etc/fstab
+      shell: "sudo sed -i 's|^/swap.img|#/swap.img|g' /etc/fstab"
+
     - name: join cluster
       shell: "{{ hostvars['master'].join_command }} >> node_joined.txt"
       args:
@@ -388,6 +396,7 @@ $ nano worker.yml
 * master 에서 Cluster에 연결을 할 정보를 가져와 join_command_raw 에 저장을 한다.
 * hosts: workers : workers 그룹의 서버들에서 실행을 한다.
 * swap 을 disable 한다.
+* /etc/fstab에 swap을 disable 한다. (재부팅시 적용하기 위함.)
 * cluster에 연결(join)을 한다.
 
 생성한 Playbook 을 실행을 한다.
