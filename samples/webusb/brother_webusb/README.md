@@ -1,0 +1,1 @@
+1. Default Command Mode : ESC/P (Printer Setting Tool)

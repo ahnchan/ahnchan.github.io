@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+	<div></div>
+	<div>TEST Printer - Command</div>
+	<div>
+		<textarea id="printContent"></textarea>
+		<input type="submit" onclick="connectAndPrint()" value="Print"/>
+		<P>Type text into box and click on submit button.
+	</div>
+
+	<script>
+	var device;
+
+	String.prototype.hexEncode4 = function(){
+		var hex, i;
+
+		var result = "";
+		for (i=0; i<this.length; i++) {
+			hex = this.charCodeAt(i).toString(16);
+			result += ("000"+hex).slice(-4);
+		}
+
+		return result
+	}
+
+	String.prototype.hexEncode2 = function(){
+		var hex, i;
+
+		var result = "";
+		for (i=0; i<this.length; i++) {
+			hex = this.charCodeAt(i).toString(16);
+			result += (""+hex).slice(-4);
+		}
+
+		return result
+	}
+
+	function setup(device) {
+		return device.open()
+		.then(() => device.selectConfiguration(1))
+		.then(() => device.claimInterface(0))
+	}
+
+	function printTest() {
+		var string = document.getElementById("printContent").value + "\n";
+		var encoder = new TextEncoder();
+		var data = encoder.encode(string);
+
+		console.log(string);
+		console.log(data);
+
+		device.transferOut(1, data)
+		.catch(error => { console.log(error); })
+	}
+
+	// var vid = 0x0828;	// SATO CL4NX
+	// var pid = 0x0123;	// SATO CL4NX
+
+	var vid = 0x195F;	// GoDex 883i
+
+	function connectAndPrint() {
+		if (device == null) {
+			navigator.usb.requestDevice({ filters: [{vendorId: vid}] })
+			.then(selectedDevice => {
+				device = selectedDevice;
+				console.log(device);
+				return setup(device);
+			})
+			.then(() => {
+				printTest()
+			})
+			.catch(error => { 
+				console.log(error); 
+			})
+		}
+		else
+			printTest();
+	}
+
+	function connect() {
+		console.log(device);
+	}
+
+	function print() {
+		var title = document.getElementById('title').value;
+		var dataQr = document.getElementById('dataQr').value;
+		var dataNfc = document.getElementById('dataNfc').value;
+
+		// var titleEncode = encodeURIComponent(title).split('%').join('');
+		var titleEncode = title.hexEncode4().toUpperCase();	// HEX
+
+		console.log(title, titleEncode, dataQr, dataNfc);
+
+		var esc = ''; // 0x1b
+		var string = esc +'A'+ esc +'KS6'+ esc + 'KC2';
+		string += esc + 'H0000' + esc + 'V0370' + esc + '%1' + esc + 'L0303' + esc + 'P02' + esc + 'K1H' + titleEncode;
+		// NFC Data
+		textJson = dataNfc.hexEncode2();		
+		// Record 1 - Record 1 (TNF 3), 9, N, text/json, Payload Data
+		// Header: 92 09 xx 746578742f6a736f6e ddddd~d 
+		var nfcData =  '';
+		nfcData = '9209' + (textJson.length/2).toString(16) + '746578742f6a736f6e' + textJson; 
+		// Payload: 
+		// Record 2	- Record 2(TNF 4 External), 15, 30, ID, Payload
+		// Header/Payload: 54 0f 1e 616e64726f69642e636f6d3a706b67 636f6d2e6a64696e73636f72702e6d65646963616c496e76656e746f7279
+		nfcData += '540f1e616e64726f69642e636f6d3a706b67636f6d2e6a64696e73636f72702e6d65646963616c496e76656e746f7279';
+
+		// NFC Header : 0x30, Length: N
+		nfcData = '03' + (nfcData.length/2).toString(16) + nfcData;
+
+		// console.log('nfcData:' + nfcData);
+
+		string += esc + 'RK1,d'+ (nfcData.length/2) +','+ nfcData;	// Write 14443A, Hex Data
+		string += ',NFC:f,ict:05';	// NTAG216
+
+		// QR Code
+		string += esc + 'V540' + esc + 'H000' + esc + '2D30,H,04,1,0' + esc + 'DN'+ dataQr.length + ',' + dataQr;
+		string += esc + 'Q1' + esc + 'Z\n';
+		
+
+		// string = "<A><KS>6<KC>2<H>000<V>380<K1>HAC00<Q>1<Z>";
+		var encoder = new TextEncoder();
+		var sendData = encoder.encode(string);
+
+		// console.log('ENC:'+ enc_title +'.');
+		console.log(string);
+		// console.log(sendData);
+
+		device.transferOut(1, sendData)
+		.catch(error => { console.log(error); })
+	}
+
+	navigator.usb.getDevices()
+	.then(devices => {
+		if (devices.length > 0) {
+			device = devices[0];
+			return setup(device);
+		}
+	})
+	.catch(error => { console.log(error); });
+
+
+	</script>
+</body>
+</html>
