@@ -19,7 +19,7 @@ created : 2021-10-07, updated : 2021-10-07
 # 구성
 Review 서비스가 장애가 발생하는 것을 가정할 것이다. 구성도에서 보듯이 서비스가 임의로 종료하였을때 Details 서비스에서 Reviews 서비스를 호출하면 장애가 발생할 것이다. 이때 Spring Cloud Circuit Breaker를 사용하도록 할 것이다.
 
-![Diagram](/posts/assets/cloudnative/circutbreaker-diagram){: width="500"}
+![Diagram](/posts/assets/cloudnative/images/circuitbreaker-diagram.png){: width="500"} 
 
 > Note. Production 환경에서는 상황에따라 다양하게 오류를 대처가 필요하다. 이 튜토리얼에서는 오류가나는 API에 대해서 Default 정보를 보내서 회피하는 것을 학습할 것이다. 
 
