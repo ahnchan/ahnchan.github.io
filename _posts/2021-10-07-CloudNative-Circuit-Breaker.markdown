@@ -17,7 +17,7 @@ created : 2021-10-07, updated : 2021-10-07
 (“Client Side Load Balancer - Ribbon (Spring Cloud)”)[https://ahnchan.github.io/posts/CloudNative-Client-Side-Load-Balancer-Ribbon/] 
 
 
-> Note. 이 튜토리얼의 소스는 [이곳](https://ahnchan.github.io/posts/CloudNative-Circuit-Breaker/)에서 확인할 수 있다. initial은 이전 튜토리얼에서의 구성한 소스이고 complate는 본 튜토리얼에 추가한 부분이 포함되어 있다. 
+> Note. 이 튜토리얼의 소스는 [이곳](https://github.com/ahnchan/tutorial-spring-cloud-circuit-breaker)에서 확인할 수 있다. initial은 이전 튜토리얼에서의 구성한 소스이고 complate는 본 튜토리얼에 추가한 부분이 포함되어 있다. 
 
 # 구성
 Review 서비스가 장애가 발생하는 것을 가정할 것이다. 구성도에서 보듯이 서비스가 임의로 종료하였을때 Details 서비스에서 Reviews 서비스를 호출하면 장애가 발생할 것이다. 이때 Spring Cloud Circuit Breaker를 사용하도록 할 것이다.
