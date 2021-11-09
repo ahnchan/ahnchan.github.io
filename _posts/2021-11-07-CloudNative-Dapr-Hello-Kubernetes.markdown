@@ -10,28 +10,28 @@ created : 2021-11-07, updated : 2021-11-07
 # Introduction
 이번 튜토리얼에서는 Dapr를 Kubernetes에 올려보겠다. dapr의 특징인 Service Invocation과 State Management 를 사용할 것이다. 
 
-> Note. 본 소스는 Dapr 공식 Quick Start의 (Hello-Kubernetes)[https://github.com/dapr/quickstarts/tree/v1.4.0/hello-kubernetes]를 바탕으로 Dapr의 기능을 설명하기 위해 Application을 추가하여 작성하였다. 모두 Node.js 로 작성을 하였다. 
+> Note. 본 소스는 Dapr 공식 Quick Start의 [Hello-Kubernetes](https://github.com/dapr/quickstarts/tree/v1.4.0/hello-kubernetes)를 바탕으로 Dapr의 기능을 설명하기 위해 Application을 추가하여 작성하였다. 모두 Node.js 로 작성을 하였다. 
 
 
 # Requirements
 이전 Dapr 튜토리얼을 한번 보는 것은 좋겠다. 필수 사항은 아니고 본 튜토리얼을 따라가다 보면 자연스럽게 익힐 수 있을 것으로 생각된다.
 
-Dapr Installation: (https://ahnchan.github.io/posts/CloudNative-Dapr-installation/)[https://ahnchan.github.io/posts/CloudNative-Dapr-installation/]
+Dapr Installation: [https://ahnchan.github.io/posts/CloudNative-Dapr-installation/](https://ahnchan.github.io/posts/CloudNative-Dapr-installation/)
 
-Dapr Quick Start - Hello World: (https://ahnchan.github.io/posts/CloudNative-Dapr-QuickStart-HelloWorl/)[https://ahnchan.github.io/posts/CloudNative-Dapr-QuickStart-HelloWorl/]
+Dapr Quick Start - Hello World: [https://ahnchan.github.io/posts/CloudNative-Dapr-QuickStart-HelloWorl/](https://ahnchan.github.io/posts/CloudNative-Dapr-QuickStart-HelloWorl/)
 
 > Note. Kubernetes 의 설치는 Docker Desktop 에서 설정에서 Kubernetes를 Enable 시키면 된다. 
 
-> Note. 외부 Kubernetes를 구성하고 싶으면 “(Ansible을 이용하여 Ubuntu 20.04에 Kubernetes 구성하기)[https://ahnchan.github.io/posts/Platform-kubernetes_ubuntu20/]”에서 간단하게 구성하는 설명을 해놓았다. 
+> Note. 외부 Kubernetes를 구성하고 싶으면 “[Ansible을 이용하여 Ubuntu 20.04에 Kubernetes 구성하기](https://ahnchan.github.io/posts/Platform-kubernetes_ubuntu20/)”에서 간단하게 구성하는 설명을 해놓았다. 
 
 
 # Pre-Installation
-Dapr Installation: (https://ahnchan.github.io/posts/CloudNative-Dapr-Installation/)[https://ahnchan.github.io/posts/CloudNative-Dapr-Installation/]
-Dapr Installation(Darp.io): (https://docs.dapr.io/getting-started/)[https://docs.dapr.io/getting-started/]
-Docker: (https://www.docker.com/products/docker-desktop)[https://www.docker.com/products/docker-desktop] 
-Node.js: (https://nodejs.org/en/download/)[https://nodejs.org/en/download/] 
-Heml : (https://helm.sh/docs/intro/install/)[https://helm.sh/docs/intro/install/]
-Redis : state store로 Redis를 사용한다. 그래서 Kubernetes 환경에서 Redis 설치가 필요하다. (https://docs.dapr.io/getting-started/configure-state-pubsub/)[https://docs.dapr.io/getting-started/configure-state-pubsub/]
+Dapr Installation: [https://ahnchan.github.io/posts/CloudNative-Dapr-Installation/](https://ahnchan.github.io/posts/CloudNative-Dapr-Installation/)
+Dapr Installation(Darp.io): [https://docs.dapr.io/getting-started/](https://docs.dapr.io/getting-started/)
+Docker: [https://www.docker.com/products/docker-desktop](https://www.docker.com/products/docker-desktop)
+Node.js: [https://nodejs.org/en/download/](https://nodejs.org/en/download/)
+Heml : [https://helm.sh/docs/intro/install/](https://helm.sh/docs/intro/install/)
+Redis : state store로 Redis를 사용한다. 그래서 Kubernetes 환경에서 Redis 설치가 필요하다. [https://docs.dapr.io/getting-started/configure-state-pubsub/](https://docs.dapr.io/getting-started/configure-state-pubsub/)
 
 
 > Note. 이전 튜토리얼은 Self-Hosted이였다. Kubernetes 환경에서 깔끔하게 구동하려면 dapr uninstall --all 로 제거하고 진행하는 것도 좋을 것으로 생각된다. 
@@ -48,12 +48,12 @@ Gateway에서 node1, node2 로 Routing을 한다. 각각의 node는 /status 라�
 ![Diagram](/posts/assets/cloudnative-dapr/images/dapr-hello-kubernetes-diagram.png){: width="500"} 
 
 
-> Note. 해당 소스는 (https://github.com/ahnchan/tutorial-dapr-hello-kubernetes)[https://github.com/ahnchan/tutorial-dapr-hello-kubernetes]에 있으며, 소스에 대해 중요한 부분만 중간에 설명을 하겠다. 
+> Note. 해당 소스는 [https://github.com/ahnchan/tutorial-dapr-hello-kubernetes](https://github.com/ahnchan/tutorial-dapr-hello-kubernetes)에 있으며, 소스에 대해 중요한 부분만 중간에 설명을 하겠다. 
 
 
 # Redis 설치기
 Redis는 State Store로 사용하며 Order의 Id를 저장한다. Helm을 이용하여 Kubernetes에 설치한다. 
-(설치 문서 정보)[https://docs.dapr.io/getting-started/configure-state-pubsub/]
+[설치 문서 정보](https://docs.dapr.io/getting-started/configure-state-pubsub/)
 
 
  ```
@@ -279,9 +279,9 @@ Dapr는 API를 호출하는 방식이기 때문에 어떤 언어든 상관없이
 
 
 # References
-(Dapr Quick Start - Hello Kubernetes)[https://github.com/dapr/quickstarts/tree/v1.4.0/hello-kubernetes]
+[Dapr Quick Start - Hello Kubernetes](https://github.com/dapr/quickstarts/tree/v1.4.0/hello-kubernetes)
 
-(Dapr Quick Start - distributerd caculator)[https://github.com/dapr/quickstarts/tree/v1.4.0/distributed-calculator]
+[Dapr Quick Start - distributerd caculator](https://github.com/dapr/quickstarts/tree/v1.4.0/distributed-calculator)
 
-(Redis Installation (State, Pub/Sub))[https://docs.dapr.io/getting-started/configure-state-pubsub/]
+[Redis Installation (State, Pub/Sub)](https://docs.dapr.io/getting-started/configure-state-pubsub/)
 
