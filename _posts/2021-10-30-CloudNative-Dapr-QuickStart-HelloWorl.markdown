@@ -8,17 +8,17 @@ created : 2021-10-30, updated : 2021-10-30
 
 
 # Introduction
-이전 튜토리얼에서는 Dapr를 설치하고 간단하게 ((링크)[https://ahnchan.github.io/posts/CloudNative-Dapr-Installation/]) State Store에 정보를 저장, 확인하는 것을 확인했다. 
+이전 튜토리얼에서는 Dapr를 설치하고 간단하게 ([링크](https://ahnchan.github.io/posts/CloudNative-Dapr-Installation/)) State Store에 정보를 저장, 확인하는 것을 확인했다. 
 이번 튜토리얼에서는 Dapr의 공식 Quick Start문서에서 Hello-World를 실행해보도록 하겠다. 
 
 
 # Pre-Installation
-Dapr Installation: (https://ahnchan.github.io/posts/CloudNative-Dapr-Installation/)[https://ahnchan.github.io/posts/CloudNative-Dapr-Installation/]
-Dapr Installation(Darp.io): (https://docs.dapr.io/getting-started/)[https://docs.dapr.io/getting-started/]
-Docker: (https://www.docker.com/products/docker-desktop)[https://www.docker.com/products/docker-desktop] 
-Node.js: (https://nodejs.org/en/download/)[https://nodejs.org/en/download/] 
-Python: (https://www.python.org/downloads/)[https://www.python.org/downloads/]https://www.python.org/downloads/]
-GIT: (https://gitforwindows.org/)[https://gitforwindows.org/]
+Dapr Installation: [https://ahnchan.github.io/posts/CloudNative-Dapr-Installation/](https://ahnchan.github.io/posts/CloudNative-Dapr-Installation/)
+Dapr Installation(Darp.io): [https://docs.dapr.io/getting-started/](https://docs.dapr.io/getting-started/)
+Docker: [https://www.docker.com/products/docker-desktop](https://www.docker.com/products/docker-desktop) 
+Node.js: [https://nodejs.org/en/download/](https://nodejs.org/en/download/) 
+Python: [https://www.python.org/downloads/](https://www.python.org/downloads/)
+GIT: [https://gitforwindows.org/](https://gitforwindows.org/)
 
 > Note. Windows 환경에서 설치를 해보겠다. 각각의 설치되는 부분은 간단하게 링크로 대체하였다. 
 
@@ -32,7 +32,7 @@ Node로 구성된 Service를 Python으로 구성된 Service에서 호출하는 �
 
 
 # Source 가져오기
-Dapr의 Quick Start 의 GIT Repository를 가져온다. 공식문서에서는 버전별로 tag를 입력하도록 되어 있다. Dapr의 버전을 확인하고 Quick Start 지원 문서 ((링크))[https://github.com/dapr/quickstarts#supported-dapr-runtime-version]를 확인하여 알맞은 Source를 가져와 보자. 
+Dapr의 Quick Start 의 GIT Repository를 가져온다. 공식문서에서는 버전별로 tag를 입력하도록 되어 있다. Dapr의 버전을 확인하고 Quick Start 지원 문서 ([링크](https://github.com/dapr/quickstarts#supported-dapr-runtime-version))를 확인하여 알맞은 Source를 가져와 보자. 
 
 ```
 > dapr --version
@@ -152,7 +152,7 @@ Dapr Dashboard running on http://localhost:9999
 # Conclusions
 Dapr는 앞으로 계속 확장될 것으로 기대가 된다. 다른 문서들을 보면 현재의 문제를 보안하기 위해 Istio 등과 같이 사용하는 방법이 제시되고 있다. Sidecar 에 Proxy 를 이용하면 좀더 정교한 컨트롤이 가능할 것으로 생각이 된다.
 
-> Note. 이 소스를 Kubernetes에 올리는 Quick Start는 이 (링크)[https://github.com/dapr/quickstarts/tree/v1.4.0/hello-kubernetes]에 있다. 실제로 Cloud Native Application을 효과적으로 사용하기 위해서는 현재는 Kubernetes 환경이 가장 좋다. 
+> Note. 이 소스를 Kubernetes에 올리는 Quick Start는 이 [링크](https://github.com/dapr/quickstarts/tree/v1.4.0/hello-kubernetes)에 있다. 실제로 Cloud Native Application을 효과적으로 사용하기 위해서는 현재는 Kubernetes 환경이 가장 좋다. 
 
 
 # References

@@ -9,12 +9,12 @@ created : 2021-10-07, updated : 2021-10-07
 # Introduction
 서비스간 데이터를 요청할때 한쪽 서비스에 문제가 발생하였을 경우가 있다. 이럴 때를 대비하여 정보는 Default로 전달하여 전체 서비스가 오류가 나는 것을 방지 할 수 있다. 이때를 위해 Circuit Breaker를 이용하여 Default정보를 보낼 수 있다.
 
-> Note. 본 Tutorial은 (“Client Side Load Balancer - Ribbon (Spring Cloud)”)[https://ahnchan.github.io/posts/CloudNative-Client-Side-Load-Balancer-Ribbon/]를 기반으로 Circuit Breaker 부분을 추가로 구현하였다. 
+> Note. 본 Tutorial은 [“Client Side Load Balancer - Ribbon (Spring Cloud)”](https://ahnchan.github.io/posts/CloudNative-Client-Side-Load-Balancer-Ribbon/)를 기반으로 Circuit Breaker 부분을 추가로 구현하였다. 
 
 # Requirements
-(“Service Registration and Discovery (Spring Boot)”)[https://ahnchan.github.io/posts/CloudNative-Service-Registration-and-Discovery/]
+[“Service Registration and Discovery (Spring Boot)”](https://ahnchan.github.io/posts/CloudNative-Service-Registration-and-Discovery/)
 
-(“Client Side Load Balancer - Ribbon (Spring Cloud)”)[https://ahnchan.github.io/posts/CloudNative-Client-Side-Load-Balancer-Ribbon/] 
+[“Client Side Load Balancer - Ribbon (Spring Cloud)”](https://ahnchan.github.io/posts/CloudNative-Client-Side-Load-Balancer-Ribbon/)
 
 
 > Note. 이 튜토리얼의 소스는 [이곳](https://github.com/ahnchan/tutorial-spring-cloud-circuit-breaker)에서 확인할 수 있다. initial은 이전 튜토리얼에서의 구성한 소스이고 complate는 본 튜토리얼에 추가한 부분이 포함되어 있다. 
@@ -29,7 +29,7 @@ Review 서비스가 장애가 발생하는 것을 가정할 것이다. 구성도
 # 장애 상황을 만들어보기
 먼저 장애상황을 만들어보고 이를 해결해보기로 하자. 전체 시스템을 먼저 모두 시작하고 장애 상태를 만들어 보겠다. . 
 
-> Note. 시작시 오류가 나면 이전 튜토리얼 ((링크))[https://ahnchan.github.io/posts/CloudNative-Client-Side-Load-Balancer-Ribbon/]을 참조하기 바란다.
+> Note. 시작시 오류가 나면 이전 튜토리얼 ([링크](https://ahnchan.github.io/posts/CloudNative-Client-Side-Load-Balancer-Ribbon/])을 참조하기 바란다.
 
 ## Discovery 시작하기
 ```
@@ -52,7 +52,7 @@ $ mvn spring-boot:run
 …
 ```
 
-브라우저에서 http://localhost:8671 을 호출하면 Eureka Server에 DETAILS, REVIEWS가 접속되어 있는 것을 확인할 수 있다.
+브라우저에서 [http://localhost:8671](http://localhost:8671) 을 호출하면 Eureka Server에 DETAILS, REVIEWS가 접속되어 있는 것을 확인할 수 있다.
 
 Reviews 서비스가 오류가 나는 상황을 만들어 보자. Reviews 서비스를 Ctrl+c로 종료를 한다. Reviews 서비스가 종료가되면 /products/1/detailsV1 이나 products/1/detailsV2 를 curl을 이용하여 호출해보자. 아래와 같이 서버 오류가 나올 것이다.
 

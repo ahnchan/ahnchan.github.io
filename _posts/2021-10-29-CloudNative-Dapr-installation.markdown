@@ -14,7 +14,7 @@ Cloud Native Application을 구현하기 위해 서비스간의 통신, 분산�
 
 
 # Pre-Installation
-Docker: (https://www.docker.com/products/docker-desktop)[https://www.docker.com/products/docker-desktop] 
+Docker: [https://www.docker.com/products/docker-desktop](https://www.docker.com/products/docker-desktop)
 
 > Note. Windows 환경에서 설치를 해보겠다. 각각의 설치되는 부분은 간단하게 링크로 대체하였다. 이번 튜토리얼은 Dapr를 설치하고 Dapr만을 이용하여 State management 기능을 사용해 볼 것이다. 
 
@@ -100,7 +100,7 @@ Docker Desktop을 설치 하였으면 아래와 Docker Desktop에서도 확인�
 
 
 # Sidecar 실행
-Dapr CLI를 이용하여 Sidecar만 실행해 보겠다. 서비스는 없이 Sidecar만 실행하여 State에 저장/읽기를 진행할 것이다. Command Prompt에서 실행을 해보자. (PowerShell에서는 명령문이 다르니 이 부분은 원문을 확인하기 바란다. (링크)[https://docs.dapr.io/getting-started/get-started-api/])
+Dapr CLI를 이용하여 Sidecar만 실행해 보겠다. 서비스는 없이 Sidecar만 실행하여 State에 저장/읽기를 진행할 것이다. Command Prompt에서 실행을 해보자. (PowerShell에서는 명령문이 다르니 이 부분은 원문을 확인하기 바란다. ([링크](https://docs.dapr.io/getting-started/get-started-api/))
 
 ```
 > dapr run --app-id myapp --dapr-http-port 3500

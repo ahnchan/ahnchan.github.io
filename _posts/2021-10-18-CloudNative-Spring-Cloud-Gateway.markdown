@@ -11,11 +11,11 @@ created : 2021-10-18, updated : 2021-10-18
 Microservice구성에서 많은 API Service가 분산되어 있다. 그래서 좀더 효과적으로 사용하기 위해 Gateway를 사용한다. Gateway에서 공통으로 권한관리를 할수도 있고 서비스 관리를 할수도 있다. Nginx, 상용/공개 API Gateway등 다른 솔루션/제품을 사용할 수 있지만, Spring Framewrk내에서 Gateway를 구현해보도록 하겠다.
 
 # Requirements
-(“Service Registration and Discovery (Spring Boot)”)[https://ahnchan.github.io/posts/CloudNative-Service-Registration-and-Discovery/]
+[“Service Registration and Discovery (Spring Boot)”](https://ahnchan.github.io/posts/CloudNative-Service-Registration-and-Discovery/)
 
-(“Client Side Load Balancer - Ribbon (Spring Cloud)”)[https://ahnchan.github.io/posts/CloudNative-Client-Side-Load-Balancer-Ribbon/] 
+[“Client Side Load Balancer - Ribbon (Spring Cloud)”](https://ahnchan.github.io/posts/CloudNative-Client-Side-Load-Balancer-Ribbon/)
 
-(“Circuit Breaker”)[https://ahnchan.github.io/posts/CloudNative-Circuit-Breaker/]
+[“Circuit Breaker”](https://ahnchan.github.io/posts/CloudNative-Circuit-Breaker/)
 
 > Note. 이 튜토리얼의 소스는 [이곳](https://github.com/ahnchan/tutorial-spring-cloud-gateway)에서 확인할 수 있다. initial은 이전 튜토리얼에서의 구성한 소스이고 complate는 본 튜토리얼에 추가한 부분이 포함되어 있다. 
 
@@ -49,10 +49,10 @@ Application에 route를 설정해보자. 먼저 /products를 호출할때는 Eur
 @Bean
 RouteLocator gatewayRoute(RouteLocatorBuilder builder) {
 	return builder.routes()
-			.route(p -> p
-					.path("/products/**")
-					.uri("lb://details/products"))
-		.build();
+    .route(p -> p
+      .path("/products/**")
+      .uri("lb://details/products"))
+  .build();
 }
 ```
 
@@ -61,11 +61,11 @@ RouteLocator gatewayRoute(RouteLocatorBuilder builder) {
 파일: GatewayApplication.java
 ```
 ...
-			.route(p -> p
-					.host("*.ahnchan.com")
-					.and()
-					.path("/reviews/**")
-					.uri("lb://reviews/reviews"))
+  .route(p -> p
+    .host("*.ahnchan.com")
+    .and()
+    .path("/reviews/**")
+    .uri("lb://reviews/reviews"))
 ...
 ```
 
@@ -74,13 +74,13 @@ Circuit Breaker 추가해보자. filter에 CircuitBreaker를 추가하여 오류
 파일: GatewayApplication.java
 ```
 ...
-			.route(p -> p
-					.host("*.ahnchan.com")
-					.filters(f -> f
-							.circuitBreaker(config -> config
-									.setName("fallback")
-									.setFallbackUri("forward:/fallback")))
-					.uri("lb://products"))
+  .route(p -> p
+    .host("*.ahnchan.com")
+    .filters(f -> f
+      .circuitBreaker(config -> config
+        .setName("fallback")
+        .setFallbackUri("forward:/fallback")))
+    .uri("lb://products"))
 ...
 ```
 
@@ -99,7 +99,7 @@ class GatewayRestController {
 ```
 
 # API 요청하기
-먼저 /products를 호출해보자. DETAILS 서비스(https://localhost:8080/products)를 호출한 것과 같은 결과 값이 나온다. 
+먼저 /products를 호출해보자. DETAILS 서비스([https://localhost:8080/products](https://localhost:8080/products))를 호출한 것과 같은 결과 값이 나온다. 
 
 ```
 $ curl http://localhost:8000/products | jq

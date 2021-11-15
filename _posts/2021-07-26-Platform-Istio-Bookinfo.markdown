@@ -13,7 +13,7 @@ Istio는 Envoy Proxy를 이용하여 서비스간에 통신이 되도록하는 O
 
 
 # Prerequisites
-[Kubernetes Cluster 구성] (https://ahnchan.github.io/posts/Platform-kubernetes_ubuntu20/)(혹은 Docker Desktop의 Kubernetes 구성 : [링크](https://istio.io/latest/docs/setup/platform-setup/docker/)) 되어 있어야 한다.
+[Kubernetes Cluster 구성](https://ahnchan.github.io/posts/Platform-kubernetes_ubuntu20/)(혹은 Docker Desktop의 Kubernetes 구성 : [링크](https://istio.io/latest/docs/setup/platform-setup/docker/)) 되어 있어야 한다.
 Host는 Macos에서 VirtualBox로 구성된 Kubernetes로 Istio 를 설치하고, Bookinfo를 설치해보도록 하겠다. 
 
 
