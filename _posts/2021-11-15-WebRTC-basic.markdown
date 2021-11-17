@@ -38,7 +38,7 @@ Client끼리 통신을 못할 경우에 사용하는 서버로 스트리밍 데�
 # Signal에 따른 처리 Flow
 간단하게 이번에 구성된 부분의 Signal들의 흐름을 정리해보았다. User A, User B가 ICE Candidate, offer, answer 정보를 Signaling Server 통해서 전달 받도록 되어 있다. 소스를 구성하면 좀 더 이해하기 편할 것이다. 
 
-![Signal Flow](/posts/assets/network/WebRtc/images/webrtc-basic-signal-flow.png){: width="500"} 
+![Signal Flow](/posts/assets/network/images/webrtc-basic-signal-flow.png){: width="500"} 
 
 
 > Note. candidate는 맨마지막에 전달하는 것은 아니다 offer, answer를 처리하는 중간에 서로 교환이 된다. Flow diagram에서는 표현하기 힘들어 맨 아래에 따로 넣었다. 
