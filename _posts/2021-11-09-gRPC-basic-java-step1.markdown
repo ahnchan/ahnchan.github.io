@@ -8,7 +8,7 @@ created : 2021-11-09, updated : 2021-11-09
 
 
 # Introduction
-Micro Service의 환경이 되면서 점점 더 Service간의 연계가 많아지면서 서비스가 복잡해지고 있다.  REST/API 로 스펙관리에 한계를 느끼고 있다고 한다. 그래서 다시금 RPC 개념이 사용되고 있다. 기존 RPC를 Google에서 좀더 안정적으로 사용할 수 있게 gRPC로 만들어서 오픈소스로 공개하고 있다. 
+Micro Service의 환경이 되면서 점점 더 Service간의 연계가 많아지면서 서비스가 복잡해지고 있다.  REST API 로 스펙관리에 한계를 느끼고 있다고 한다. 그래서 다시금 RPC 개념이 사용되고 있다. 기존 RPC를 Google에서 좀더 안정적으로 사용할 수 있게 gRPC로 만들어서 오픈소스로 공개하고 있다. 
 옛날에 TCP/IP 통신을 위해 Protocol 을 디자인 하면서 접했던 Protocol Buffer를 이용하고 있다. 또한 다양한 언어에서 gRPC를 사용할 수도 있다. HTTP/2를 지원하고 있어 속도측면에서도 HTTP/1.1보다 빠른 속도로 통신을 할 수 있다. 
 
 > Note. 본 튜토리얼은 OReiliy 의 Video 강의인 "[gRPC [Java] Master Class: Build Modern API and Microservices ](https://learning.oreilly.com/videos/grpc-java-master/9781838558048/)"의 내용 듣고, 코드로 구현한 것이다. 좀더 자세한 내용을 원하면 해당 강의를 듣기를 권장한다. 
@@ -207,7 +207,7 @@ client를 Synchronous 하게 생성을 한다. 그리고 실행을 하면 아래
 
 
 # Conclusions
-REST/full API를 하다가 gRPC가 사용하면 어렵게 느껴질수도 있다. 하지만, 많은 장점이 있다. 나는 gRPC가 고전적인 통신방법으로 옛날에 Protocol을 설계하고 TCP/IP 통신에서 사용하던 방식과 유사하여 좀더 효율적이라고 생각한다. JSON, XML 기반의 API를 많이 사용해본 사용자라면, 매번 스펙문서를 Update하고, 코딩을 하면서 맞추는 것도 상당히 시간이 걸린다. Protocol Buffer로 정의된 스펙(코드로)을 기반으로 Message와 Service를 사용하니 조금 복잡하더라도 더욱 효율적이라고 생각된다. 
+REST API를 하다가 gRPC가 사용하면 어렵게 느껴질수도 있다. 하지만, 많은 장점이 있다. 나는 gRPC가 고전적인 통신방법으로 옛날에 Protocol을 설계하고 TCP/IP 통신에서 사용하던 방식과 유사하여 좀더 효율적이라고 생각한다. JSON, XML 기반의 API를 많이 사용해본 사용자라면, 매번 스펙문서를 Update하고, 코딩을 하면서 맞추는 것도 상당히 시간이 걸린다. Protocol Buffer로 정의된 스펙(코드로)을 기반으로 Message와 Service를 사용하니 조금 복잡하더라도 더욱 효율적이라고 생각된다. 
 
 다음 튜토리얼에서는 Synchronos, Asynchronous 방식의 통신과 Unary, Streaming(Client, Server, Bi Directional)에 대해 진행을 해보도록 하겠다. 
 

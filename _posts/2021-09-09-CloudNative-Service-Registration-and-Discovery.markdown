@@ -17,7 +17,7 @@ Spring Framework 환경에서 서비스를 등록/관리하고 이 서비스를 
 
 # Let’s Start 
 튜토리얼을 시작하기 위해 필요한 구성을 설명해보겠다. 총 3가지의 프로젝트를 만들고 실행할 것이다.
-가상으로 Bookstore 서비스로 책에 대한 정보를 확인하고 해당 책에 대한 Review를 확인하는 REST/full API 서비스를 구성할 것이다. 
+가상으로 Bookstore 서비스로 책에 대한 정보를 확인하고 해당 책에 대한 Review를 확인하는 REST API 서비스를 구성할 것이다. 
 
 > Note. 웹 화면은 없이 API 로만 통신하는 부분으로 만들 것이다.
 
@@ -125,7 +125,7 @@ e.s.EurekaServerInitializerConfiguration : Started Eureka Server
 
 ## Dependencies에 추가된 라이브러리 설명
 - Eureka Discovery Client : discovery client로 구동시 Eureka Server에 서비스를 등록한다. 그정보를 이용하여 다른 서비스에서 API 호출할 수 있다.
-- Spring Web : REST/full API를 구현하기 위한 Library이다.
+- Spring Web : REST API를 구현하기 위한 Library이다.
 - Spring Data JPA, H2 Database : H2 Database(Memory)를 사용하고 Java  Persistence를 사용하기 위해 추가한 Library 이다.
 - Lombok : Entit나 Model Class의 사용을 편하게 하는 라이브러리이다.
 - OpenFeign : 등록된 서비스를 사용할때 편리하게 하는 라이브러리이다.

@@ -22,7 +22,7 @@ Java SDK
 4가지 데이터 교환 방식을 만들어 볼것이다. [gRPC 의 공식문서](https://grpc.io/docs/what-is-grpc/core-concepts/#rpc-life-cycle)를 보면 RPC Life cycle 부분을 보면 나와있다. 
 
 ## Unary 
-간단한 구성으로 하나의 Request에 하나의 Response로 통신을 한다. 일반적인 REST/full 방식과 같은 형식이다. 지금 가장 많이 사용되는 방식이다.  
+간단한 구성으로 하나의 Request에 하나의 Response로 통신을 한다. 일반적인 REST 방식과 같은 형식이다. 지금 가장 많이 사용되는 방식이다.  
 
 ## Server streaming
 Unary와 같이 Client에서 Request를 하면, Server는 Stream으로 데이터를 계속 전송을 한다. 그리고 Server에서 메시지 전송이 완료되면, 완료되었다는 정보를 Client에 Respnse로 보내면 하나의 Cycle이 완료된다. 
