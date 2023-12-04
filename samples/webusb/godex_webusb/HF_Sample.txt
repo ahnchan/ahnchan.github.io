@@ -1,0 +1,8 @@
+^L
+C0,01,+1,Prompt
+V00,16,Prompt,jl8
+V01,16,Prompt,jl8
+RFR,H,0,16,0,^V00
+RFW,A,0,4,1,YZ^C0
+RFR,A,0,4,1,^V01
+E
