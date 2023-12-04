@@ -88,7 +88,7 @@ microk8s kubectl port-forward svc/airflow-werbserver 8080:8080 --namespace airfl
 > 운영 환경에서는 이방식을 사용하면 매번 upgrade등이 수행되면 해당 Bash를 실행해야 할 것이니 테스트에서만 사용하자
 
 해당 서버의 IP와 Port를 8080으로 브라우저에서 접속을 해본다. 아래 화면은 다음 장에서 이야기할 Dag를 Github 와 연결을 한 상태이고 아마 Dag가 비어있는 상태로 보일 것이다. 
-[Airflow 첫 화면](/posts/assets/platform/airflow_microk8s/airflow_gui.png){width="200"}
+![Airflow 첫 화면](/posts/assets/platform/airflow_microk8s/airflow_gui.png){: width="500"}
 
 ## Airflow 설정 추가하기
 Install의 마지막 문구를 보면 Webserver secret을 설정하라고 나온다. 이를 위한 URL도 표시되어 있다. 안내에 나온 (Production Guide의 Webserver secret)[https://airflow.apache.org/docs/helm-chart/stable/production-guide.html#webserver-secret-key]를 확인하면 아래와 같다. 
@@ -222,7 +222,7 @@ Public key를 가지고 Fingerprint를 출력하고 이정보를 (Github 공식 
 ssh-keygen -lf github_public_key
 ```
 
-[Github의 ssh key fingerprint 정보](/posts/assets/platform/airflow_microk8s/github_ssh_fingerprints.png){width="200"}]
+![Github의 ssh key fingerprint 정보](/posts/assets/platform/airflow_microk8s/github_ssh_fingerprints.png){: width="400"}]
 
 
 (RSA)의 SHA-256의 값이 동일하면 이제 설정에 추가하면 된다. value.yaml에 추가를 해보자. 

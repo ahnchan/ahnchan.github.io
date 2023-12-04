@@ -234,7 +234,7 @@ Callback URL은 Auth0에서 인증을 한 후에 완료되면 다시 돌아오�
 ## Auth0 사용자 추가
 사용자를 추가해보자. User Management에서 Users를 선택하고 Create User를 선택하여 사용자를 추가한다. 로그인 화면에서 Singup을 할 수도 있다. Singup이 가능한지는 Connection의 설정에서 enable/disable할 수 있다. 
 
-![Create User](/posts/assets/platform/jupyterhub_microk8s/auth0_create_user.png){: width="200"}
+![Create User](/posts/assets/platform/jupyterhub_microk8s/auth0_create_user.png){: width="400"}
 
 ## JupyterHub 와 연결하기
 Auth0의 설정이 완료되었으면 JupyterHub의 설정을 추가하여 Auth0와 연결을 설정한다. 
@@ -265,8 +265,9 @@ hub:
 ## 실제 접속해보기
 이제 설정이 완료되었으면 다시 JupyterHub에 접속을 해보자. 그럼 처음과 다르게 Auth0 버튼이 나오고 Auth0에서 Signin 화면으로 변환이 된다. 
 
-![Auth0 singin button](/posts/assets/platform/jupyterhub_microk8s/jupyterhub_singin_auth0_0.png){: width="200"}
-![Auth0 Singin](/posts/assets/platform/jupyterhub_microk8s/jupyterhub_singin_auth0_1.png){: width="200"}
+![Auth0 singin button](/posts/assets/platform/jupyterhub_microk8s/jupyterhub_singin_auth0_0.png){: width="400"}
+
+![Auth0 Singin](/posts/assets/platform/jupyterhub_microk8s/jupyterhub_singin_auth0_1.png){: width="400"}
 
 
 # Next Step
