@@ -13,7 +13,7 @@ Kafka는 기존의 Message Broker 의 기능을 업그레이드하여 BigData의
 먼저 Kafka를 Local 환경(Linux)에서 구동을 하고 Console에서 메세지를 보내고 받도록 해볼 것이다. Kafka은 단순한 Message Queue/Broker를 넘어 다양한 Connector등을 제공하고 정보를 휘발성이 아닌 원하는 만큼 저장할 수 있는 특징도 가지고 있다. 
 
 
-# Use Case
+# Use Cases
 Kafka가 사용되는 몇가지 사용 사례를 정리해보겠다. 공식 문서의 내용을 근거로 정리를 해보았다.
 
 ## Messaging
