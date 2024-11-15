@@ -1,0 +1,6 @@
+---
+permalink: /ads.txt
+# Google AdSense
+---
+
+google.com, pub-2304979176656635, DIRECT, f08c47fec0942fa0
